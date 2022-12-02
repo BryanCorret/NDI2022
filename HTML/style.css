@@ -7,3 +7,12 @@
     height: 500px;
     width: 850px;
 }
+
+.chart-container, #vmap, #line-chart{
+    text-align: center;
+    margin: auto;
+}
+
+#center{
+    margin: 80px;
+}

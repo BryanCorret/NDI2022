@@ -100,7 +100,6 @@ $.ajax({
       afficheStat(liste_annee, liste_data);
 }
 
-}
 
 
-); /*Call this funtion with the ID-name for that element to increase the number within*/};
+;
