@@ -251,7 +251,7 @@ main .insights {
 
 main .insights > div {
     background: var(--color-white);
-    padding: 20px
+    padding: 20px;
     border-radius: var(--card-border-radius);
     margin-top: 1rem;
     box-shadow: var(--box-shadow);
