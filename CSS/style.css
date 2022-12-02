@@ -162,7 +162,6 @@ aside .logo img{
 aside .close{display: none;}
 
 aside .sidebar{
-    background: white;
     display: flex;
     flex-direction: column;
     height: 86vh;
