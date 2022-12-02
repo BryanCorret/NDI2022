@@ -9,6 +9,49 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" />
     <link rel="stylesheet" href="../CSS/style.css ">
+
+
+
+
+
+      <!--Pour MAP-->
+  <link href="MAP/jqvmap.css" media="screen" rel="stylesheet" type="text/css"/>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="MAP/jquery.vmap.js"></script>
+  <script type="text/javascript" src="MAP/jquery.vmap.world.js" charset="utf-8"></script>
+  <script type="text/javascript" src="MAP/jquery.vmap.sampledata.js"></script>
+  <script>
+    jQuery(document).ready(function () {
+      jQuery('#vmap').vectorMap({
+        map: 'world_en',
+        backgroundColor: '#adb5bd',
+        color: '#ffffff',
+        hoverOpacity: 0.7,
+        selectedColor: '#666666',
+        enableZoom: true,
+        showTooltip: true,
+        scaleColors: ['#C8EEFF', '#006491'],
+        values: sample_data,
+        normalizeFunction: 'polynomial'
+      });
+    });
+  </script>
+
+
+  <!--STAT-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+
+  <!--HEAD-->
+
+
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <link rel="stylesheet" href="style.css">
+  
+
+  <script src="script.js"></script>
 </head>
 <body>
           <div class = "container">
@@ -35,8 +78,8 @@
                     </a>
 
                     <a href="#">
-                        <span class="material-icons-sharp">Les données</span>
-                        <h3>Order</h3>
+                        <span class="material-icons-sharp">receipt_long</span>
+                        <h3>Les données</h3>
                     </a>
 
                     <a href="#">
@@ -75,19 +118,11 @@
                         <span class="material-icons-sharp"> analytics</span>
                         <div class="middle">
                             <div class = "left">
-                                <h3> Total Sales</h3>
-                                <h1> 10000$</h1>
-                            </div>
-                            <div class = "progress">
-                                <svg>
-                                    <circle cx="38" cy="38" r="36"></circle>
-                                </svg>
-                                <div class ="number">
-                                    <p> 70%</p>
-                                </div>
+                                <h3> 2021 VIH total</h3>
+                                <p id="nb1" value="38400000" class="nbr">00</p>
                             </div>
                         </div>
-                        <small class="text-muted">last 24 heures</small>
+                        <small class="text-muted">personnes</small>
                     </div>
                     <!-- END OF SALES -->  
                 
@@ -96,16 +131,8 @@
                         <span class="material-icons-sharp"> analytics</span>
                         <div class="middle">
                             <div class = "left">
-                                <h3> Total income</h3>
-                                <h1> 10000$</h1>
-                            </div>
-                            <div class = "progress">
-                                <svg>
-                                    <circle cx="38" cy="38" r="36"></circle>
-                                </svg>
-                                <div class ="number">
-                                    <p> 70%</p>
-                                </div>
+                                <h3> 1ere apparition du virus</h3>
+                                <p id="nb2" value="1981" class="nbr">000</p>
                             </div>
                         </div>
                         <small class="text-muted">last 24 heures</small>
@@ -116,19 +143,11 @@
                         <span class="material-icons-sharp"> analytics</span>
                         <div class="middle">
                             <div class = "left">
-                                <h3> Total expenses</h3>
-                                <h1> 10000$</h1>
-                            </div>
-                            <div class = "progress">
-                                <svg>
-                                    <circle cx="38" cy="38" r="36"></circle>
-                                </svg>
-                                <div class ="number">
-                                    <p> 70%</p>
-                                </div>
+                                <h3> Décés du VIH 2021</h3>
+                                <p id="nb3" value="650000" class="nbr">000000</p>
                             </div>
                         </div>
-                        <small class="text-muted">last 24 heures</small>
+                        <small class="text-muted">personnes</small>
                     </div>
                 <!-- END OF SALES -->
 
@@ -150,6 +169,34 @@
             </div>
                 
         </div>
+
+
+
+        <div class="center">
+            <canvas id="bar-chart-grouped"  ></canvas>
+          </div>
+          
+      
+      
+          <!--Map-->
+          <div class="center">
+            <div id="vmap" style="width: 1000px; height: 600px;"></div>
+          </div>
+          
+      
+          
+      
+      
+      
+          <div class="center">
+            <canvas id="line-chart" width="800" height="450 "></canvas>
+          </div>
+        
+      
+              
+
+          
+          
         <script src="../JS/index.js"></script>
     </body>
 </html>
