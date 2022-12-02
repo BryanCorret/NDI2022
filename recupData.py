@@ -39,18 +39,13 @@ def recupfichier():
     file = open('Data/sql-pays.csv', "r")
     tous_les_pays = file.readlines()
     file.close()
-    liste_pays=[]
+    dico_pays={}
     for pays in tous_les_pays:
         pays=pays.split(',')
-        liste_pays.append(pays[4].replace('"',""))
-    # Ouvrir le fichier en lecture seule
+        dico_pays[pays[4].replace('"',"")]=pays[2].replace('"',"")
     file = open('Data/API_SH.HIV.0014_DS2_fr_csv_v2_4523404.csv', "r")
-    # utiliser readlines pour lire toutes les lignes du fichier
-    # La variable "lignes" est une liste contenant toutes les lignes du fichier
     lignes = file.readlines()
-    # fermez le fichier après avoir lu les lignes
     file.close()
-    # Itérer sur les lignes
     debut=0
     pays_nb_cas_VIH_par_annee = {}
     liste_exemple =[]
@@ -60,29 +55,16 @@ def recupfichier():
         if debut>4:
             ligne = ligne.split(',')
             dico_annee_cas ={}
-            if ligne[0].replace('"',"") in liste_pays:
+            if ligne[0].replace('"',"") in dico_pays.keys():
                 for i in range(4,len(ligne)-1):
                     if ligne[i].replace('"',"") == '':
                         dico_annee_cas[int(liste_exemple[i].replace('"',""))]= 0
                     else:
                         dico_annee_cas[int(liste_exemple[i].replace('"',""))]= int(ligne[i].replace('"',""))
-
-            pays_nb_cas_VIH_par_annee[que_des_minuscule(ligne[0].replace('"',""))]=dico_annee_cas
-            print(pays_nb_cas_VIH_par_annee)
+                print(ligne[0].replace('"',""))
+                pays_nb_cas_VIH_par_annee[dico_pays[ligne[0].replace('"',"")]]=dico_annee_cas
         else:
             debut+=1
     with open('detailsData.json', 'w') as mon_fichier_donnée:
   	    json.dump(pays_nb_cas_VIH_par_annee, mon_fichier_donnée)
 recupfichier()
-
-# import json
-
-# employee = {
-# 	"nom": "Marie Richardson",
-# 	"id": 1,
-# 	"recrutement": True,
-# 	"department": "Ventes"
-# }
-
-# with open('detailsData.json', 'w') as mon_fichier:
-# 	json.dump(employee, mon_fichier)
