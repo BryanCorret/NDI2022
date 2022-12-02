@@ -1,22 +1,68 @@
 <!doctype html>
 <html lang="fr">
 <head>
+
+  <!--Pour MAP-->
+  <link href="MAP/jqvmap.css" media="screen" rel="stylesheet" type="text/css"/>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="MAP/jquery.vmap.js"></script>
+  <script type="text/javascript" src="MAP/jquery.vmap.world.js" charset="utf-8"></script>
+  <script type="text/javascript" src="MAP/jquery.vmap.sampledata.js"></script>
+  <script>
+    jQuery(document).ready(function () {
+      jQuery('#vmap').vectorMap({
+        map: 'world_en',
+        backgroundColor: '#adb5bd',
+        color: '#ffffff',
+        hoverOpacity: 0.7,
+        selectedColor: '#666666',
+        enableZoom: true,
+        showTooltip: true,
+        scaleColors: ['#C8EEFF', '#006491'],
+        values: sample_data,
+        normalizeFunction: 'polynomial'
+      });
+    });
+  </script>
+
+
+  <!--STAT-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+
+  <!--HEAD-->
+
+
   <meta charset="utf-8">
   <title>Titre de la page</title>
   <link rel="stylesheet" href="style.css">
+  
+
   <script src="script.js"></script>
-  <script src="js/chart.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
 </head>
 <body>
  
-    <p id="nb1" value="38,400,000" class="nbr">00</p>
+    <p id="nb1" value="38400000" class="nbr">00</p>
 
     <p id="nb2" value="1981" class="nbr">000</p>
 
-    <p id="nb3" value="650,000" class="nbr">000000</p>
+    <p id="nb3" value="650000" class="nbr">000000</p>
 
-    <canvas id="bar-chart-grouped" width="800" height="450"></canvas>
+
+    <!--Map-->
+    <div id="vmap" style="width: 1000px; height: 600px;"></div>
+
+
+
+    <div class="chart-container" style="position: relative; height:30vh; width:50vw">
+      <canvas id="line-chart" width="800" height="450 "></canvas>
+    </div>
+  
+
+        <canvas id="bar-chart-grouped" width="800" height="450"></canvas>
+
 
 </body>
 </html>

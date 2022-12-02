@@ -2,3 +2,8 @@
     font-size:62px;
     margin:44px 0 0 0;
 }
+
+#line-chart{
+    height: 500px;
+    width: 850px;
+}
